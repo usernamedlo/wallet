@@ -1,4 +1,4 @@
-# DApp Wallet Learn
+# DApp Wallet
 
 This project is an Ethereum wallet with a sending and receiving system.
 
