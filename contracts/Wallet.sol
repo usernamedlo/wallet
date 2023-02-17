@@ -8,7 +8,7 @@ contract Wallet {
 
     mapping(address => uint) public Wallets;
 
-    function withDrawMoney(address payable _to, uint _amount) external {
+    function withdrawMoney(address payable _to, uint _amount) external {
         require(_amount <= Wallets[msg.sender], "Not enough funds");
         Wallets[msg.sender] -= _amount;
         _to.transfer(_amount);
