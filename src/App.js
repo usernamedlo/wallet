@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import Wallet  from './artifacts/contracts/Wallet.sol/Wallet.json';
 
-let WalletAddress = '0x610178dA211FEF7D417bC0e6FeD39F05609AD788';
+let WalletAddress = '0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512';
 
 function App() {
 
@@ -98,19 +98,32 @@ function App() {
 
   return (
     <div className="App">
-      {error && <p className="error">{error}</p>}
-      <h2>{balance / 10**18} eth</h2>
-      <div className='wallet_flex'>
-        <div className='walletG'>
-          <h3>Envoyer de l'ether</h3>
-          <input type="number" placeholder="Montant en Ethers" onChange={changeAmountSend} />
-          <button onClick={transfer}>Envoyer</button>
+      <div className='container'>
+
+        <div className='logo'>
+          <i className="fa-brands fa-ethereum"></i>
         </div>
-        <div className="walletD">
-          <h3>Retirer de l'ether</h3>
-          <input type="number" placeholder="Montant en Ethers" onChange={changeAmountWithdraw} />
-          <button onClick={withdraw}>Retirer</button>
+
+        {error && <p className="error">{error}</p>}
+        {success && <p className="success">{success}</p>}
+
+        <h2>{balance / 10**18} <span className='eth'>eth</span></h2>
+
+        <div className='wallet_flex'>
+          
+          <div className='walletG'>
+            <h3>Envoyer de l'ether</h3>
+            <input type="number" placeholder="Montant en Ethers" onChange={changeAmountSend} />
+            <button onClick={transfer}>Envoyer</button>
+          </div>
+
+          <div className="walletD">
+            <h3>Retirer de l'ether</h3>
+            <input type="number" placeholder="Montant en Ethers" onChange={changeAmountWithdraw} />
+            <button onClick={withdraw}>Retirer</button>
+          </div>
         </div>
+      
       </div>
     </div>
   );
